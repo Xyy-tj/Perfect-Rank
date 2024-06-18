@@ -23,12 +23,14 @@ from functools import wraps
 from entity.player.player import Player
 from flask import g
 
+
 license_check_flag = False
 app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 sslify = SSLify(app)
 global_scene_id = 1
 global_step = 1
+
 
 from dotenv import load_dotenv
 
@@ -140,6 +142,7 @@ def player_stats():
         # 关闭数据库连接
         conn.close()
 
+
 @app.route('/add-game', methods=['GET'])
 def add_game():
     '''添加游戏场次数据'''
@@ -195,6 +198,27 @@ def add_game():
         conn.close()
 
     return "Game data for all players added successfully!"
+
+
+@app.route('/ocr', methods=['POST'])
+def ocr():
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file part'})
+
+    file = request.files['file']
+
+    if file.filename == '':
+        return jsonify({'error': 'No selected file'})
+
+    if file:
+        # OCR需要的库，环境没装，先注释
+        # from PIL import Image
+        # import pytesseract
+
+        # image = Image.open(file)
+        # text = pytesseract.image_to_string(image)
+        text = 'Hello OCR'
+        return jsonify({'text': text})
 
 if __name__ == '__main__':
     app.run(debug=True, port=9999, host='0.0.0.0')
