@@ -142,7 +142,7 @@ class Ranker_Logger:
 
         if len(self.log_buffer) > 0:
             print('日志服务器心跳事件检测到日志缓存，推送日志到数据库...缓存日志数量: %s' % len(self.log_buffer))
-            conn = sqlite3.connect('my_database.db')
+            conn = sqlite3.connect('game_data.db')
             c = conn.cursor()
             c.execute('''
             CREATE TABLE IF NOT EXISTS logs (
