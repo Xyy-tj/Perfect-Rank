@@ -1,0 +1,25 @@
+{
+    "game_id": 3,
+    "game_time": "2024-06-18 20:00:00",
+    "map": "Inferno",
+    "players": [
+        {
+            "nickname": "CatKin",
+            "adr": 150,
+            "rws": 9.9,
+            "kd": 2.0
+        },
+        {
+            "nickname": "145",
+            "adr": 200,
+            "rws": 9.5,
+            "kd": 1.8
+        },
+        {
+            "nickname": "CatGPT4.0",
+            "adr": 180,
+            "rws": 8.7,
+            "kd": 1.5
+        }
+    ]
+}
